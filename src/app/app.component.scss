@@ -1,0 +1,46 @@
+.MainContainerHolderCls {
+    width: 100%;
+    height: 100%;
+    .headerHolderCls {
+        padding: 10px;
+        background-color: #343a40;
+        .libNameTxtCls {
+            padding: 20px;
+            margin: 20px;
+            font-size: 25px;
+            color: #fff;
+        }
+    }
+}
+
+.pluginHolderCls {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.configCls {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.txtBoxCls {
+    border-radius: 3px;
+    border-color: grey;
+    border: 1px solid grey;
+    padding: 8px 5px;
+    width: 300px;
+}
+
+.configTxtOptCls {
+    width: 155px;
+}
+
+.selectValCls {
+    margin: 10px;
+    padding: 10px;
+    background-color: #a1f2a1;
+    border: 1px solid green;
+    border-radius: 5px;
+    color: #2a4f2a;
+}

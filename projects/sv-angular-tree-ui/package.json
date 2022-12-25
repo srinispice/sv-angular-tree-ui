@@ -1,0 +1,35 @@
+{
+    "name": "sv-angular-tree-ui",
+    "version": "0.0.3",
+    "keywords": [
+        "ng",
+        "ngx",
+        "angular",
+        "sv-angular-tree-ui",
+        "tree",
+        "treeview",
+        "tree-view",
+        "recursive",
+        "angular tree component"
+    ],
+    "description": "An unlimited Angular tree level component with filter, hightlight, expand/collapse and height option.",
+    "author": "@SrinivasanOfficial <https://github.com/orgs/SrinivasanOfficial>",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SrinivasanOfficial/SrinivasanOfficialAngTree.git"
+    },
+    "bugs": {
+        "url": "https://github.com/SrinivasanOfficial/SrinivasanOfficialAngTree/issues"
+    },
+    "peerDependencies": {
+        "@angular/common": "^11.2.14",
+        "@angular/core": "^11.2.14",
+        "lodash": "^4.17.21"
+    },
+    "dependencies": {
+        "tslib": "^2.0.0"
+    },
+    "allowedNonPeerDependencies": {
+        "@types/lodash": "^4.14.171"
+    }
+}

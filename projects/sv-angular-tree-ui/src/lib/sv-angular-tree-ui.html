@@ -1,0 +1,43 @@
+<div class="libMainTreeHolderCls">
+
+    <ul>
+        <input *ngIf="this.treeConfigData.hasFilter" class="libFilterTxtCls" (keyup)="libFilterTree($event)" type="text" placeholder="{{this.treeConfigData.filterPlaceHolderText}}" value="" />
+
+        <ng-container *ngIf="this.treeConfigData.hasExpandCollapseAll">
+            <div *ngIf="(libLocalTreeData && libLocalTreeData.length > 0)" (click)="libToggleExpCollAll()" id="libExpColAllId" class="libExpColAllCls libExpandAllIconCls"></div>
+        </ng-container>
+
+        <div id="libTreeListHolder" [ngStyle]="(treeConfigData.treeListHeight != '') ? {'height': treeConfigData.treeListHeight+'px', 'overflow-y': 'scroll'} : {}">
+            <ng-container *ngIf="(libLocalTreeData && libLocalTreeData.length > 0)">
+                <ng-container *ngTemplateOutlet="recursiveListTmpl; context:{ list: libLocalTreeData } "></ng-container>
+            </ng-container>
+
+            <ng-container *ngIf="(libLocalTreeData && libLocalTreeData.length === 0)">
+                <div class="libNoResCls">{{treeConfigData.noResultFoundText}}</div>
+            </ng-container>
+        </div>
+    </ul>
+
+    <ng-template #recursiveListTmpl let-list="list">
+        <ng-container *ngFor="let item of list">
+            <li *ngIf="(item.isExpanded || item.parentId === 0)">
+                <div class="libMainContentHolderCls">
+                    <div *ngIf="(item.hasChild)" id="libIconId{{item.uniqueId}}" class="libExpColCls" [ngClass]="{
+                      'libMinusIconCls': (item.isExpanded || item.parentId === 0),
+                      'libPlusIconCls': !item.isExpanded
+                    }" (click)="libExpandColapseTree(item.uniqueId)">
+
+                    </div>
+                    <div [ngClass]="{'libAlignNoChildCls' : !item.hasChild}" class="libTxtDispHolderCls" id="parentTree{{item.uniqueId}}" (click)="libEmitSelectedTreeVal(item)">
+                        <span [innerHTML]="libHighLightText(item.text)"></span>
+                    </div>
+                </div>
+                <ng-container *ngIf="item.children.length> 0">
+                    <ul class="childTree{{item.uniqueId}}">
+                        <ng-container *ngTemplateOutlet="recursiveListTmpl; context:{ list: item.children }"></ng-container>
+                    </ul>
+                </ng-container>
+            </li>
+        </ng-container>
+    </ng-template>
+</div>

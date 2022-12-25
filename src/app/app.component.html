@@ -1,0 +1,41 @@
+<div class="MainContainerHolderCls">
+    <div class="headerHolderCls">
+        <span class="libNameTxtCls">sv-angular-tree-ui</span>
+    </div>
+    <div class="pluginHolderCls">
+        <div class="optionHolderCls">
+            <h1>Configuration Options</h1>
+            <div class="configHolderCls">
+                <div class="configCls"><input [(ngModel)]="treeConfig.hasFilter" type="checkbox" value="" /> hasFilter</div>
+                <div class="configCls"><input [(ngModel)]="treeConfig.hasExpandCollapseAll" type="checkbox" value="" /> hasExpandCollapseAll</div>
+                <div class="configCls">
+                    <div class="configTxtOptCls">hightlightTextColor</div>
+                    <input [(ngModel)]="treeConfig.hightlightTextColor" class="txtBoxCls" type="text" value="" />
+                </div>
+                <div class="configCls">
+                    <div class="configTxtOptCls">filterPlaceHolderText</div>
+                    <input [(ngModel)]="treeConfig.filterPlaceHolderText" class="txtBoxCls" type="text" value="{{filterPlaceHolderText}}" />
+                </div>
+                <div class="configCls">
+                    <div class="configTxtOptCls">treeNodeSelectColor</div>
+                    <input [(ngModel)]="treeConfig.treeNodeSelectColor" class="txtBoxCls" type="text" value="" />
+                </div>
+                <div class="configCls">
+                    <div class="configTxtOptCls">noResultFoundText</div>
+                    <input [(ngModel)]="treeConfig.noResultFoundText" class="txtBoxCls" type="text" value="" />
+                </div>
+                <div class="configCls">
+                    <div class="configTxtOptCls">treeListHeight</div>
+                    <input [(ngModel)]="treeConfig.treeListHeight" class="txtBoxCls" type="text" value="" />
+                </div>
+            </div>
+        </div>
+
+        <div class="selectValCls">
+            Selected Value :
+            <ng-container *ngIf="selVal">{{selVal | json}}</ng-container>
+        </div>
+        <hr>
+        <sv-angular-tree-ui [treeConfigData]="treeConfig" [treeData]="treeData" (getSelectedValue)="getSelectedValue($event)"></sv-angular-tree-ui>
+    </div>
+</div>
